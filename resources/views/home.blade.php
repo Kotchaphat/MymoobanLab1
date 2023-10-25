@@ -20,6 +20,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('product.index') }}">Product</a>
+            </li>
             </ul>
             <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
                 @csrf

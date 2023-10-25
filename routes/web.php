@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Models\User;
-
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
 
 /*
@@ -31,4 +31,9 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', [HomeController::class, 'index']);
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+});
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', [HomeController::class, 'index']);
+    Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::resource('/product', ProductController::class);
 });
